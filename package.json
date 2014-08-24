@@ -1,0 +1,45 @@
+{
+	"name": "resource-bundle",
+	"version": "0.0.1",
+	"description": "resource-bundle is a locale-specific resource loader.",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha --recursive --require should --harmony test/ --bail",
+		"test-cov": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports --require should  --recursive test/ --bail",
+		"test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --recursive test/ --bail"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/RocksonZeta/koa-validate.git"
+	},
+	"keywords": [
+		"resource",
+		"bundle",
+		"resourcebundle",
+		"resource bundle",
+		"i18n",
+		"l10n",
+		"locale",
+		"localization",
+		"internationalize",
+		"international",
+		"internationalization",
+		"nodejs"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"cofy": "^0.1.1"
+	},
+	"devDependencies": {
+		"co": "*",
+		"should": "*",
+		"mocha": "*",
+		"supertest": "*",
+		"coveralls": "*",
+		"mocha-lcov-reporter": "*",
+		"istanbul-harmony": "*"
+	},
+	"engines": {
+		"node": ">= 0.11.9"
+	}
+}
