@@ -7,16 +7,26 @@ require('should');
 
 
 describe('ResourceBundle' , function(){
-	it("get en_US message should be ok" , function(done){
+	it("get message should be ok" , function(done){
 		co(function*(){
-			try{
-
-			var bundle = new ResourceBundle('en_US','test/resources','message');
-			(yield bundle.get('name')).equal('tom');
+			var bundle = new ResourceBundle('en_US',__dirname+'/resources','message');
+			(yield bundle.get('name')).should.equal('jerry');			
+			bundle = new ResourceBundle('zh_CN',__dirname+'/resources','message');
+			(yield bundle.get('name')).should.equal('chick');
+			bundle = new ResourceBundle('',__dirname+'/resources','message');
+			(yield bundle.get('name')).should.equal('tom');
 			done();
-		}catch(e){
-			console.log(e);
-		}
+		})();
+	});
+	it("these things must not to be ok" , function(done){
+		co(function*(){
+			var bundle = new ResourceBundle('ja_JP',__dirname+'/resources','message');
+			(yield bundle.get('name')).should.not.equal('jerry');			
+			bundle = new ResourceBundle('en_US',__dirname+'/resources','message1');
+			require('assert').equal(null , yield bundle.get('name'));
+			// bundle = new ResourceBundle('',__dirname+'/resources','message');
+			// (yield bundle.get('name')).should.equal('tom');
+			done();
 		})();
 	});
 });

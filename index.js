@@ -1,7 +1,6 @@
 'use strict';
 var fs = require('fs'),
-path = require('path'),
-cofy = require('cofy');
+path = require('path');
 
 /**
 @constructor ResourceBundle
@@ -15,33 +14,44 @@ var ResourceBundle = function(locale,dir,baseName){
 	this.baseName = baseName;
 };
 
+function fileExists(file){
+	return function(done){
+		fs.exists(file,function(x){
+			done(null ,x);
+		});
+	};
+}
+
 ResourceBundle.prototype._select = function*(){
-	console.log('select ');
-	var co_exists = cofy(fs.exists);
+	var lan = this.locale.split('_')[0];
 	var file = path.join(this.dir,this.baseName)+'_'+this.locale+'.js';
-	if(yield co_exists(file))return file;
+	if(yield fileExists(file))return file;
 	file = path.join(this.dir,this.baseName)+'_'+this.locale+'.json';
-	if(yield co_exists(file))return file;
+	if(yield fileExists(file))return file;
+	file = path.join(this.dir,this.baseName)+'_'+lan+'.js';
+	if(yield fileExists(file))return file;
+	file = path.join(this.dir,this.baseName)+'_'+lan+'.json';
+	if(yield fileExists(file))return file;
 	file = path.join(this.dir,this.baseName)+'.js';
-	if(yield co_exists(file))return file;
+	if(yield fileExists(file))return file;
 	file = path.join(this.dir,this.baseName)+'.json';
-	if(yield co_exists(file)){
+	if(yield fileExists(file)){
 		return file;
 	}else{
-		throw new Error('no corresponding resource for '+path.join(this.dir,this.baseName)+" locale");
+		console.warn('no corresponding resource for '+this.baseName+" "+this.locale);
+		return null;
 	}
-	console.log('select '+file);
-	if(!/^\/|[a-z]:/i.test(file)){
-		file ="./"+file;
-	}
-	this.resource = require(file);
-	this.file = file;
 };
 
 
 ResourceBundle.prototype.get = function*(key){
 	if(!this.resource){
-		yield this._select();
+		this.file = yield this._select();
+		if(null === this.file){
+			return null;
+		}
+		console.log("select file " ,this.file);
+		this.resource = require(this.file);
 	}
 	return this.resource[key];
 };
