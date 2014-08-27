@@ -10,7 +10,9 @@ describe('ResourceBundle' , function(){
 	it("get message should be ok" , function(done){
 		co(function*(){
 			var bundle = new ResourceBundle('en_US',__dirname+'/resources','message');
-			(yield bundle.get('name')).should.equal('jerry');			
+			(yield bundle.get('name')).should.equal('jerry');	
+			bundle = new ResourceBundle('en_GB',__dirname+'/resources','message');
+			(yield bundle.get('name&age','jim',8)).should.equal('jim&8');
 			bundle = new ResourceBundle('zh_CN',__dirname+'/resources','message');
 			(yield bundle.get('name')).should.equal('chick');
 			bundle = new ResourceBundle('',__dirname+'/resources','message');

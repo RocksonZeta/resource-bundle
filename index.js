@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs'),
+util = require('util'),
 path = require('path');
 
 /**
@@ -44,16 +45,26 @@ ResourceBundle.prototype._select = function*(){
 };
 
 
+/**
+get value from resource by a key
+@param {string} - 
+*/
 ResourceBundle.prototype.get = function*(key){
 	if(!this.resource){
 		this.file = yield this._select();
+		console.log(this.file);
 		if(null === this.file){
 			return null;
 		}
-		console.log("select file " ,this.file);
 		this.resource = require(this.file);
 	}
-	return this.resource[key];
+	if(1>=arguments.length){
+		return this.resource[key];
+	}else{
+		var params = Array.prototype.slice.call(arguments);
+		params[0] = this.resource[key];
+		return util.format.apply(util,params);
+	}
 };
 
 module.exports = ResourceBundle;
