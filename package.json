@@ -1,6 +1,6 @@
 {
 	"name": "resource-bundle",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "resource-bundle is a locale-specific resource loader.",
 	"main": "index.js",
 	"scripts": {
@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/RocksonZeta/koa-validate.git"
+		"url": "https://github.com/RocksonZeta/resource-bundle.git"
 	},
 	"keywords": [
 		"resource",
@@ -27,9 +27,6 @@
 		"nodejs"
 	],
 	"license": "MIT",
-	"dependencies": {
-		"cofy": "^0.1.1"
-	},
 	"devDependencies": {
 		"co": "*",
 		"should": "*",

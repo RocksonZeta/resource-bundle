@@ -1,5 +1,9 @@
 resource-bundle
 ===============
+[![Build Status](https://travis-ci.org/RocksonZeta/resource-bundle.svg?branch=master)](https://travis-ci.org/RocksonZeta/resource-bundle)
+[![Coverage Status](https://img.shields.io/coveralls/RocksonZeta/resource-bundle.svg)](https://coveralls.io/r/RocksonZeta/resource-bundle)
+[![NPM version](https://badge.fury.io/js/resource-bundle.svg)](http://badge.fury.io/js/resource-bundle)
+[![Dependency Status](https://david-dm.org/RocksonZeta/resource-bundle.svg)](https://david-dm.org/RocksonZeta/resource-bundle)
 
 resource-bundle is a locale-specific resource loader based on co.
 
@@ -43,7 +47,7 @@ new ResourceBundle(locale,dir,baseName)
 - `baseName` - the baseName of the resource.
 
 Resource name should to be `baseName_en_US.js` or `baseName_en_US.json` or `baseName_en.js` or `baseName_en.json` or baseName.js or baseName.json format.
-if no locale match the resource ,it will use baseName.js or baseName.json by default.
+if no locale resource matched,it will use baseName.js or baseName.json by default.
 
 ### Methods
 
