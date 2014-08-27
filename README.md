@@ -42,7 +42,8 @@ new ResourceBundle(locale,dir,baseName)
 - `dir` - specify the root dir of the resource file. It is best to use absolute path.
 - `baseName` - the baseName of the resource.
 
-Resource name should to be `baseName_en_US.js` or `baseName_en_US.json` or `baseName_en.js` or `baseName_en.json` format.
+Resource name should to be `baseName_en_US.js` or `baseName_en_US.json` or `baseName_en.js` or `baseName_en.json` or baseName.js or baseName.json format.
+if no locale match the resource ,it will use baseName.js or baseName.json by default.
 
 ### Methods
 
