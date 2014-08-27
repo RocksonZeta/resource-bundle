@@ -29,12 +29,11 @@ co(function*(){
 })();
 
 ```
-message_en_US.js
+`message_en_US.js` like this
 ```javascript
 module.exports = {
 	key:"value";
 }
-
 ```
 
 ## ResourceBundle

@@ -1,6 +1,6 @@
 {
 	"name": "resource-bundle",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "resource-bundle is a locale-specific resource loader.",
 	"main": "index.js",
 	"scripts": {
