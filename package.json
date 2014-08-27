@@ -6,7 +6,7 @@
 	"scripts": {
 		"test": "mocha --recursive --require should --harmony test/ --bail",
 		"test-cov": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports test/ --bail",
-		"test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --recursive test/ --bail"
+		"test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should test/ --bail"
 	},
 	"repository": {
 		"type": "git",
