@@ -36,7 +36,7 @@ module.exports = {
 }
 ```
 
-## ResourceBundle
+## API
 ### loader
 ```js
 var loader = require('resource-bundle');
