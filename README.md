@@ -24,14 +24,16 @@ var loader = require('resource-bundle');
 co(function*(){
 	var message = yield loader("en_US" ,__dirname+"/resources/i18n","message");
 	var value = message.get('key');
-	var intro = message.get('intro' , 'jim');
+	var intro = message.get('intro' , 'jim',1);	// intro should be 'my name is jim,in class 1'
+	var mk = message.get('mk' , [1,2,3]); // mk should be '123'
 })();
 ```
 `message_en_US.js` like this
 ```javascript
 module.exports = {
 	key:"value",
-	intro:"my name is %s"
+	intro:"my name is %s,in class %d",
+	mk:"%s%s%s"
 }
 ```
 

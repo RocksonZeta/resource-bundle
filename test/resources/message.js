@@ -1,3 +1,4 @@
 module.exports = {
-	"name":"tom"
+	"name":"tom",
+	"info":"%s is in the class %d"
 };

@@ -54,8 +54,13 @@ ResourceBundle.prototype.get = function(key){
 	if(1>=arguments.length){
 		return this.resource[key];
 	}else{
-		var params = Array.prototype.slice.call(arguments);
-		params[0] = this.resource[key];
+		var params;
+		if(2 == arguments.length && arguments[1] instanceof Array){
+			params = [this.resource[key]].concat(arguments[1]);
+		}else{
+			params = Array.prototype.slice.call(arguments);
+			params[0] = this.resource[key];
+		}
 		return util.format.apply(util,params);
 	}
 };

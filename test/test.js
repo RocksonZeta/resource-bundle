@@ -18,6 +18,7 @@ describe('ResourceBundle' , function(){
 			bundle.get('name').should.equal('chick');
 			bundle = yield loader('',__dirname+'/resources','message');
 			bundle.get('name').should.equal('tom');
+			bundle.get('info',['jim' , 1]).should.equal('jim is in the class 1' );
 			done();
 		})();
 	});
