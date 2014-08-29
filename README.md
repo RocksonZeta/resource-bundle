@@ -26,7 +26,6 @@ co(function*(){
 	var value = message.get('key');
 	var intro = message.get('intro' , 'jim');
 })();
-
 ```
 `message_en_US.js` like this
 ```javascript

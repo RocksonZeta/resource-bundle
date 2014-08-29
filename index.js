@@ -30,7 +30,6 @@ module.exports = function*(locale,dir,baseName){
 		prePath+'.js',
 		prePath+'.json'
 	];
-
 	for(var i = 0 ; i< targetFiles.length ;i++){
 		if(yield fileExists(targetFiles[i])){
 			file = targetFiles[i];
