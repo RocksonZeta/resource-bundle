@@ -22,7 +22,7 @@ $ npm install resource-bundle
 var co = require("co");
 var loader = require('resource-bundle');
 co(function*(){
-	var message = yeild loader("en_US" ,__dirname+"/resources/i18n","message");
+	var message = yield loader("en_US" ,__dirname+"/resources/i18n","message");
 	var value = message.get('key');
 	var intro = message.get('intro' , 'jim');
 })();
