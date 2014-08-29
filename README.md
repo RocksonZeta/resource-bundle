@@ -25,7 +25,7 @@ var ResourceBundle = require('resource-bundle');
 var bundle = new ResourceBundle("en_US" ,__dirname+"/resources/i18n","message");
 
 co(function*(){
-	var value = bundle.get('key');
+	var value = yield bundle.get('key');
 })();
 
 ```
