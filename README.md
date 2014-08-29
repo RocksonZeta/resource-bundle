@@ -20,19 +20,19 @@ $ npm install resource-bundle
 ```js
 'use strict';
 var co = require("co");
-var ResourceBundle = require('resource-bundle');
-
-var bundle = new ResourceBundle("en_US" ,__dirname+"/resources/i18n","message");
-
+var loader = require('resource-bundle');
 co(function*(){
-	var value = yield bundle.get('key');
+	var message = yeild loader("en_US" ,__dirname+"/resources/i18n","message");
+	var value = message.get('key');
+	var intro = message.get('intro' , 'jim');
 })();
 
 ```
 `message_en_US.js` like this
 ```javascript
 module.exports = {
-	key:"value";
+	key:"value",
+	intro:"my name is %s"
 }
 ```
 
