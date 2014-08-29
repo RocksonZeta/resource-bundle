@@ -37,10 +37,12 @@ module.exports = {
 ```
 
 ## ResourceBundle
-### Constructor
+### loader
 ```js
-new ResourceBundle(locale,dir,baseName)
+var loader = require('resource-bundle');
+var bundle = loader(locale,dir,baseName);
 ```
+loader will return ResourceBundle object ,if no resource matched ,it will return `null`.
 - `locale` - the locale of the resource. eg. "en_US",'zh_CN'.
 - `dir` - specify the root dir of the resource file. It is best to use absolute path.
 - `baseName` - the baseName of the resource.
@@ -48,7 +50,7 @@ new ResourceBundle(locale,dir,baseName)
 Resource name should to be `baseName_en_US.js` or `baseName_en_US.json` or `baseName_en.js` or `baseName_en.json` or baseName.js or baseName.json format.
 if no locale resource matched,it will use baseName.js or baseName.json by default.
 
-### Methods
+### ResourceBundle Methods
 
 #### get(key,[...])
 Returns a corresponding format value. format method ref [util.format](http://nodejs.org/api/util.html#util_util_format_format).
