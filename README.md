@@ -41,7 +41,7 @@ module.exports = {
 ### loader
 ```js
 var loader = require('resource-bundle');
-var bundle = loader(locale,dir,baseName);
+var bundle = yield loader(locale,dir,baseName);
 ```
 loader will return ResourceBundle object ,if no resource matched ,it will return `null`.
 - `locale` - the locale of the resource. eg. "en_US",'zh_CN'.
