@@ -5,6 +5,8 @@ resource-bundle
 [![NPM version](https://badge.fury.io/js/resource-bundle.svg)](http://badge.fury.io/js/resource-bundle)
 [![Dependency Status](https://david-dm.org/RocksonZeta/resource-bundle.svg)](https://david-dm.org/RocksonZeta/resource-bundle)
 
+[![NPM](https://nodei.co/npm/resource-bundle.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/resource-bundle/)
+
 resource-bundle is a locale-specific resource loader based on co.
 
 ## NOTE:
